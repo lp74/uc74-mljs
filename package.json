@@ -1,0 +1,17 @@
+{
+  "name": "uc74-mljs",
+  "version": "1.0.0",
+  "description": "ML tools",
+  "main": "index.js",
+  "scripts": {},
+  "author": "luca.polverini@gmail.com",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "jest": "^24.8.0",
+    "ml": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4"
+  }
+}
