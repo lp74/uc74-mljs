@@ -49,20 +49,24 @@ describe('Vectorialized linear regression with regularization', () => {
         const T = sushiLR(_xs, _ys);
         expect(T.get(0, 0)).toEqual(0);
     })
-    it('Errors', () => {
-        const xs = [1, 2, 3, 4];
-        const ys = [1, 10, 8, 7];
+    it('Standard Error', () => {
+        const xs = [1, 2, 3, 4, 5];
+        const ys = [1, 2, 1.30, 3.75, 2.25];
 
         const XS = Matrix.fromArray(xs.map(x => [1].concat(x)));
         const YS = Matrix.fromArray(ys.map(x => [x]));
 
-        const n = YS.rows;
+        
+
         const T = sushiLR(xs, ys);
+        expect(T.get(0, 0)).toBeCloseTo(0.785);
+        expect(T.get(1, 0)).toBeCloseTo(0.425);
+
+        const n = YS.rows;
         const P = XS.mul(T);
         const E = YS.sub(P);
-        const u = Matrix.sum(E)/n;
-        const s = Math.sqrt(Matrix.sum(E.map(x => (x - u)).map(x => x*x))/n);
-        expect(s).toBeCloseTo(2.84);
+        const s = Math.sqrt(Matrix.sum(E.map(x => x*x))/n);
+        expect(s).toBeCloseTo(0.747);
     })
 })
 
