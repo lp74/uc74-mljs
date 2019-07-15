@@ -8,7 +8,9 @@
   "license": "UNLICENSED",
   "dependencies": {
     "jest": "^24.8.0",
-    "ml": "^4.0.0"
+    "milsushi": "git+https://github.com/mil-tokyo/sushi.git",
+    "ml": "^4.0.0",
+    "sushi": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
